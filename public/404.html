@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Перенаправление...</title>
+    <script>
+      sessionStorage.redirect = location.pathname;
+      location.replace(location.origin + '/crypto-dashboard/');
+    </script>
+  </head>
+  <body>
+    <p>Перенаправление...</p>
+  </body>
+</html>
