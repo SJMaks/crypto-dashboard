@@ -98,19 +98,19 @@ function CoinDetailsPage() {
             </button>
 
             <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                <div className="flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-card">
+                <div className="flex min-w-0 items-center gap-4">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border bg-card">
                         {
                             !imageLoaded && <Skeleton className="h-10 w-10 rounded-full" />
                         }
                         <img
                             src={image.large}
                             alt={name}
-                            className={`h-10 w-10 rounded-full ${imageLoaded ? "" : "hidden"}`}
+                            className={`h-10 w-10 shrink-0 rounded-full ${imageLoaded ? "" : "hidden"}`}
                             onLoad={() => setImageLoaded(true)}
                         />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                         <h1 className="text-2xl font-bold">
                             {name} <span className="font-medium text-text2">({symbol.toUpperCase()})</span>
                         </h1>

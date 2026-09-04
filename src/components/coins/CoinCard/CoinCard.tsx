@@ -19,7 +19,7 @@ function CoinCard({ coin }: CoinProps) {
             <div className="flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary hover:shadow-lg">
                 <div className="flex items-start justify-between gap-2">
                     <div className="flex min-w-0 items-center gap-2.5">
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs text-[#1a1a1a] font-bold">
                             {coin.market_cap_rank}
                         </span>
                         {

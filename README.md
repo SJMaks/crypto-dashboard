@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+# Crypto Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Учебный проект - дашборд для отслеживания цен криптовалют на основе открытого [CoinGecko API](https://docs.coingecko.com/).
 
-Currently, two official plugins are available:
+Основная цель работы - изучение React, TypeScript и современного инструментария фронтенд-разработки на практике, включая управление состоянием, асинхронные запросы, навигацию и адаптивную вёрстку.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Возможности приложения
 
-## React Compiler
+- Отображение списка монет с ценой, рыночной капитализацией и суточным изменением.
+- Пагинация (12 монет на страницу).
+- Детальная страница монеты: график цен за 7 дней, описание и ключевые показатели.
+- Функция избранного: добавление в избранное через кнопку-сердечко на карточке или на странице монеты; данные хранятся в `localStorage` и сохраняются после перезагрузки.
+- Переключение между светлой и тёмной темами.
+- Адаптивная сетка (от 1 до 4 колонок в зависимости от ширины экрана).
+- Skeleton-загрузка на время ожидания ответа от сервера.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Технологии
 
-## Expanding the ESLint configuration
+В работе использовались:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** + **TypeScript** - основа интерфейса;
+- **Vite** - инструмент сборки;
+- **Redux Toolkit** - управление состоянием темы, текущей страницы и избранного;
+- **React Query** - работа с серверными данными, кеширование и управление состоянием загрузки;
+- **React Router** - маршрутизация;
+- **Tailwind CSS** - стилизация;
+- **Recharts** - построение графика цены;
+- **Axios** - выполнение HTTP-запросов.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Структура проекта
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src/
+ - api/ - настройка клиента и эндпоинты
+ - components/ - переиспользуемые компоненты (карточки, skeleton)
+ - pages/ - основные страницы приложения
+ - router/ - конфигурация маршрутов
+ - store/ - Redux store и слайсы
+ - styles/ - глобальные стили и токены темы
+ - utils/ - вспомогательные функции
 ```
+
+## Запуск локально
+
+```bash
+npm install
+npm run dev
+```
+
+После этого приложение будет доступно по адресу `http://localhost:5173/`.
+
+Дополнительные команды:
+
+```bash
+npm run build # сборка для продакшена
+npm run preview # предпросмотр собранного приложения
+npm run lint # проверка кода через ESLint
+```
+
+## Что было полезно освоить в процессе
+
+Этот проект стал для меня возможностью глубже разобраться с несколькими важными темами:
+
+- работа с асинхронными запросами и кешированием через React Query;
+- организация глобального состояния с Redux Toolkit;
+- условная стилизация и поддержка тёмной темы через Tailwind;
+- адаптивная вёрстка с использованием гридов и медиавыражений;
+- разбиение интерфейса на переиспользуемые компоненты.
